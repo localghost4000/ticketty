@@ -16,7 +16,8 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to @project, notice: "Project has been created."
     else
-      # something...
+      flash.now[:alert] = "Couldn't create project."
+      render "new"
     end
   end
 
