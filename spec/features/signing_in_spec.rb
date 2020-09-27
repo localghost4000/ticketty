@@ -5,10 +5,10 @@ RSpec.feature "Users can sign in" do
 
   scenario "with valid credentials" do
     visit root_path
-    click_link "Log in"
+    click_link "Sign in"
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"
-    click_button "Log in"
+    click_button "Sign in"
 
     expect(page).to have_content "Signed in successfully."
     expect(page).to have_content "Signed in as #{user.email}"

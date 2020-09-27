@@ -2,13 +2,17 @@ require "rails_helper"
 
 RSpec.feature "Users can view tickets" do
   before do
+    author = FactoryBot.create(:user)
+
     ror = FactoryBot.create(:project, name: "Ruby on Rails")
     FactoryBot.create(:ticket, project: ror,
+                      author: author,
                       name: "More rails",
                       description: "There aren't enough rails.")
 
     node = FactoryBot.create(:project, name: "node.js")
     FactoryBot.create(:ticket, project: node,
+                      author: author,
                       name: "Rewrite it in Rust",
                       description: "It's time to rewrite it in Rust.")
 
