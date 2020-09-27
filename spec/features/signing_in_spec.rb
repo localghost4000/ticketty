@@ -5,7 +5,7 @@ RSpec.feature "Users can sign in" do
 
   scenario "with valid credentials" do
     visit root_path
-    click_link "Sign in"
+    click_link "Log in"
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"
     click_button "Log in"
