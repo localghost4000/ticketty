@@ -29,6 +29,13 @@
           <li class="nav-item <%= "active" if current_page?("/") %>">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
+
+          <% admins_only do %>
+            <li class="nav-item <%= "active" if current_page?("/") %>">
+              <%= link_to "Admin", admin_root_path, class: "nav-link" %>
+            </li>
+          <% end %>
+
           <% unless user_signed_in? %>
             <li class="nav-item <%= "active" if current_page?("/users/sign_up") %>">
               <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
@@ -36,8 +43,10 @@
             <li class="nav-item <%= "active" if current_page?("/users/sign_in") %>">
               <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
             </li>
-        <% end %>
+          <% end %>
+
         </ul>
+
         <% if user_signed_in? %>
           <div class="navbar-right">
             <p class="navbar-text">
@@ -46,6 +55,7 @@
             &middot; <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
           </div>
         <% end %>
+
       </div>
     </nav>
 
