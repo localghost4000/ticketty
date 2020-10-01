@@ -1,4 +1,4 @@
-<div id="ticket">
+<div class="ticket">
   <header>
     <h1><%= @project.name %></h1>
   </header>
@@ -16,7 +16,6 @@
         <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
       </tr>
     </table>
-
     <ul class="actions">
       <li><%= link_to "Edit Ticket", [:edit, @project, @ticket] %></li>
       <li><%= link_to "Delete Ticket", [@project, @ticket], method: :delete,
@@ -25,4 +24,15 @@
   </header>
 
   <%= simple_format(@ticket.description) %>
+
+  <% if @ticket.attachment.present? %>
+    <h4>Attachment</h4>
+    <div class="attachment">
+      <p>
+        <%= link_to @ticket.attachment.filename,
+            rails_blob_path(@ticket.attachment, disposition: 'attachment') %>
+        (<%= number_to_human_size(@ticket.attachment.attachment.blob.byte_size) %>)
+      </p>
+    </div>
+  <% end %>
 </div>
