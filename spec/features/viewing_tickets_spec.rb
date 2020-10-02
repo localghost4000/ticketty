@@ -26,7 +26,7 @@ RSpec.feature "Users can view tickets" do
     expect(page).to_not have_content "Rewrite it in Rust"
   
     click_link "More rails"
-    within("#ticket h2") do
+    within(".ticket h2") do
       expect(page).to have_content "More rails"
     end
 
