@@ -9,6 +9,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = @project.tickets.build(ticket_params)
     @ticket.author = current_user
+    @ticket.attachments.attach(params[:attachments])
 
     if @ticket.save
       flash[:notice] = "Ticket has been created."
@@ -41,6 +42,11 @@ class TicketsController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def upload_file
+    blob = ActiveStorage::Blob.create_and_upload!(io: params[:file], filename: params[:file].original_filename)
+    render json: { signedId: blob.signed_id }
+  end
+
   private
 
   def set_project
@@ -52,6 +58,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:name, :description, :attachment)
+    params.require(:ticket).permit(:name, :description, attachments: [])
   end
 end
