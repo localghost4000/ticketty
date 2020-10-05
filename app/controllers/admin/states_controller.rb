@@ -1,4 +1,6 @@
 class Admin::StatesController < ApplicationController
+  before_action :set_state, only: [:edit, :update, :make_default]
+
   def index
     @states = State.all
   end
@@ -18,8 +20,20 @@ class Admin::StatesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @state.update(state_params)
+      flash[:notice] = "Ticket has been updated."
+      redirect_to admin_states_path
+    else
+      flash.now[:alert] = "Couldn't update ticket."
+      render "edit"
+    end
+  end
+
   def make_default
-    @state = State.find(params[:id])
     @state.make_default!
 
     flash[:notice] = "'#{@state.name}' is now the default state."
@@ -31,5 +45,9 @@ class Admin::StatesController < ApplicationController
 
   def state_params
     params.require(:state).permit(:name, :color)
+  end
+
+  def set_state
+    @state = State.find(params[:id])
   end
 end

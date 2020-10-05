@@ -7,12 +7,14 @@ Rails.application.routes.draw do
     root 'application#index'
 
     resources :projects, only: [:new, :create, :destroy]
+
     resources :users do
       member do
         patch :archive
       end
     end
-    resources :states, only: [:index, :new, :create] do
+
+    resources :states, only: [:index, :new, :create, :edit, :update] do
       member do
         get :make_default
       end
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   scope path: "tickets/:ticket_id", as: :ticket do
-    resources :comments, oly: [:create]
+    resources :comments, only: [:create]
   end
 
 end
