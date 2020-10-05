@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_052337) do
+ActiveRecord::Schema.define(version: 2020_10_05_040205) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_052337) do
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "color"
+    t.boolean "default", default: false
   end
 
   create_table "tickets", force: :cascade do |t|
