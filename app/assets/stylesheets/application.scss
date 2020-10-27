@@ -1,3 +1,9 @@
+@import "bootstrap";
+@import "font-awesome";
+@import "rails_bootstrap_forms";
+@import "admin/application";
+@import "comments";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,12 +19,6 @@
  *= require_tree .
  *= require_self
  */
-
-@import "bootstrap";
-@import "font-awesome";
-@import "rails_bootstrap_forms";
-@import "admin/application";
-@import "comments";
 
 header {
   @extend .pb-2, .mt-4, .mb-2, .border-bottom, .row;
@@ -91,4 +91,29 @@ header {
 
 #tickets li, #states li {
   padding-bottom: 10px;
+}
+
+.watch, .unwatch {
+  @extend .btn;
+  @extend .btn-xs !optional;
+  font-weight: bold;
+
+  &:before {
+    font-family: "FontAwesome";
+    padding-right: 0.5em;
+  }
+}
+
+.watch {
+  @extend .btn-success;
+  &:before {
+    @extend .fa-eye;
+  }
+}
+
+.unwatch {
+  @extend .btn-danger;
+  &:before {
+    @extend .fa-eye-slash;
+  }
 }
