@@ -2,6 +2,11 @@
   <%= form.text_field :name %>
   <%= form.text_field :description %>
 
+  <div class="form-group">
+    <%= label_tag :tag_names, "Tags" %>
+    <%= text_field_tag :tag_names, "", class: "form-control" %>
+  </div>
+
   <div class="dropzone uploader" data-url="<%= upload_file_project_tickets_path(project) %>"></div>
   <br />
 
