@@ -77,11 +77,14 @@ class TicketsController < ApplicationController
 
   def ticket_params
     params.require(:ticket).permit(:name, :description, :tag_names, attachments: [])
+<<<<<<< HEAD
   end
 
   def processed_tags
     params[:tag_names].split(",").map do |tag|
       Tag.find_or_initialize_by(name: tag)
     end
+=======
+>>>>>>> e728f108719fdafef9c9ed65ee7494005d05aada
   end
 end
