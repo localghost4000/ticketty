@@ -16,10 +16,12 @@ gem 'bootstrap', '= 4.4.1'
 gem 'font-awesome-rails', '= 4.7.0.5'
 gem 'bootstrap_form', '= 4.4.0'
 gem 'premailer-rails', '~> 1.11'
+gem 'searcher', '~> 6.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'pry-byebug', '~> 3.9'
+  gem 'pry-rails'
 end
 
 group :development do
