@@ -15,6 +15,10 @@ class Ticket < ApplicationRecord
 
   before_create :assign_default_state
 
+  searcher do
+    label :tag, from: :tags, field: "name"
+  end
+
   private
 
   def assign_default_state
