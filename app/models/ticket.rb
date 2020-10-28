@@ -8,6 +8,7 @@ class Ticket < ApplicationRecord
   has_and_belongs_to_many :watchers, -> { distinct },
     join_table: "ticket_watchers",
     class_name: "User"
+  has_and_belongs_to_many :tags, uniq: true
 
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 10 }
