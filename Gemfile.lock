@@ -157,6 +157,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pg (1.2.3)
     popper_js (1.16.0)
     premailer (1.14.2)
       addressable
@@ -259,6 +260,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     sshkit (1.21.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -310,6 +312,7 @@ DEPENDENCIES
   font-awesome-rails (= 4.7.0.5)
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  pg (= 1.2.3)
   premailer-rails (~> 1.11)
   pry-byebug (~> 3.9)
   pry-rails
@@ -321,6 +324,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  sqlite3 (~> 1.4, >= 1.4.2)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
