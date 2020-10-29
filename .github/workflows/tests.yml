@@ -25,5 +25,5 @@ jobs:
         run: |
           bundle exec rake assets:precompile
       - name: Run tests
-        run: | bundle exec rspec
-
+        run: | 
+          bundle exec rspec
