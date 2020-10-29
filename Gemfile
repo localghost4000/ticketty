@@ -6,6 +6,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'pg', '1.2.3'
 gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
+gem "aws-sdk-s3", require: false
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
