@@ -5,7 +5,7 @@ ruby '2.7.1'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'pg', '1.2.3'
-gem 'puma', '~> 4.1'
+gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails'
+  gem 'puma', '~> 4.1'
 end
 
 group :development do
